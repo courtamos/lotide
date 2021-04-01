@@ -13,11 +13,11 @@ const eqArrays = function(arr1, arr2) {
 };
 
 // assertArraysEqual Function
-const assertArraysEqual = function(arr1, arr2) {
-  if (eqArrays(arr1, arr2)) {
-    console.log(`[${arr1}] and [${arr2}] are equal`);
+const assertArraysEqual = function(actual, expected) {
+  if (eqArrays(actual, expected)) {
+    console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}`);
   } else {
-    console.log(`[${arr1}] and [${arr2}] are NOT equal`);
+    console.log(`🔴🔴🔴 Assertion Failed: ${actual} !== ${expected}`);
   }
 };
 
