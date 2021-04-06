@@ -1,8 +1,21 @@
-const assertEqual = require('../assertEqual');
+const assert = require('chai').assert;
 const eqArrays = require('../eqArrays');
 
-assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true); // => pass
-assertEqual(eqArrays([1, 2, 3], [3, 2, 1]), false); // => pass
+describe("#eqArrays", () => {
+  it("return true when given [1, 2, 3] and [1, 2, 3]", () => {
+    assert.deepEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);
+  });
 
-assertEqual(eqArrays(["1", "2", "3"], ["1", "2", "3"]), true); // => pass
-assertEqual(eqArrays(["1", "2", "3"], ["1", "2", 3]), false); // => pass
+  it("return true when given ['1', '2', '3'] and ['1', '2', '3']", () => {
+    assert.deepEqual(eqArrays(['1', '2', '3'], ['1', '2', '3']), true);
+  });
+
+  it("return false when given ['1', '2', '3'] and ['1', '2', 3]", () => {
+    assert.deepEqual(eqArrays(['1', '2', '3'], ['1', '2', 3]), false);
+  });
+
+  it("return false when given [1, 2, 3] and [3, 2, 1]", () => {
+    assert.deepEqual(eqArrays([1, 2, 3], [3, 2, 1]), false);
+  });
+
+});
